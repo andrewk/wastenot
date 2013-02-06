@@ -11,8 +11,8 @@
 <header>
   <h1>waste not</h1>
   <nav>
-    <a href="/things" class="find active">find stuff</a>
-    <a href="/things/new" class="report">offer stuff</a>
+    <%= nav_link "find stuff", things_path %>
+    <%= nav_link "offer stuff", new_thing_path %>
   </nav>
 </header>
 
