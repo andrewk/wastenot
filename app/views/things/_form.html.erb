@@ -26,14 +26,8 @@
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
-  <div class="field">
-    <%= f.label :latitude %><br />
-    <%= f.text_field :latitude %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
-  </div>
+  <%= f.hidden_field :latitude %>
+  <%= f.hidden_field :longitude %>
   <div class="actions">
     <%= f.submit %>
   </div>

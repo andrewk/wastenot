@@ -1,8 +1,25 @@
 class ThingsController < ApplicationController
+  layout :get_layout
+
   # GET /things
   # GET /things.json
   def index
-    @things = Thing.all
+    lat = params[:latitude]
+    long = params[:longitude]
+    location = params[:location]
+
+    if lat && long
+      results = Geocoder.search([lat,long])
+      if geo = results.first
+        @location = "#{geo.city}, #{geo.state}"
+      end
+      @things = Thing.near([lat,long])
+    elsif location
+      @location = location
+      @things = Thing.near(location)
+    else
+      @things = Thing.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -79,5 +96,11 @@ class ThingsController < ApplicationController
       format.html { redirect_to things_url }
       format.json { head :no_content }
     end
+  end
+
+  protected
+
+  def get_layout
+    request.xhr? ? nil : 'application'
   end
 end
