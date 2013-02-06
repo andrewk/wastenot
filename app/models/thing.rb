@@ -7,11 +7,10 @@ class Thing < ActiveRecord::Base
 
   reverse_geocoded_by :latitude, :longitude do |thing,results|
     if geo = results.first
-      p geo
-      thing.city = geo.city
+      thing.city        = geo.suburb || geo.city
       thing.postal_code = geo.postal_code
       thing.country     = geo.country
-      thing.address     = geo.street_address
+      thing.address     = "#{geo.house_number} #{geo.street}"
       thing.state       = geo.state
     end
   end
