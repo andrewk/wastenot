@@ -17,7 +17,7 @@ class ThingsController < ApplicationController
         @location = "#{geo.city}, #{geo.state}"
       end
       @things = rel.near([lat,long])
-    elsif location
+    elsif location.present?
       @location = location
       @things = rel.near(location)
     else

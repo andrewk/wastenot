@@ -1,14 +1,14 @@
 <script>
+function success(position) {
+  $("#results").load(document.URL + "?latitude=" + position.coords.latitude + "&longitude=" + position.coords.longitude);
+}
+
+function error(msg) {
+
+}
+
 $('document').ready(function() {
-  function success(position) {
-    $("#results").load(document.URL + "?latitude=" + position.coords.latitude + "&longitude=" + position.coords.longitude);
-  }
-
-  function error(msg) {
-
-  }
-
-  if (!$('#location').val()) {
+  if (!$('#location').val() && window.location.search.indexOf('location') == -1) {
     if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(success,error);
     }
