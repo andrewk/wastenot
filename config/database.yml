@@ -1,14 +1,14 @@
 development:
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8
   database: wastenot_development 
   pool: 5
   username: wastenot
   password: wastenot
 
 test:
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8
   database: wastenot_test 
   pool: 5
   username: wastenot
