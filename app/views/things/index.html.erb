@@ -12,10 +12,14 @@ if(navigator.geolocation) {
 }
 </script>
 <div id="results">
-  <%= form_tag things_path, :method => :get do %>
-    <%= label_tag :location, "Near:" %>
-    <%= search_field_tag :location, @location %>
+  <%= form_tag things_path, :method => :get, :class => 'search' do %>
+    <%= label_tag :what, "find" %>
+    <%= text_field :what, :placeholder => 'Any stuff' %>
+    <%= label_tag :location, "near" %>
+    <%= text_field :location, @location %>
+    <input type="submit" value="Search" class="btn primary">
   <% end %>
+
   <ol class="stuff-list">
     <% @things.each do |thing| %>
       <li>

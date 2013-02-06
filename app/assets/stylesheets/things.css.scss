@@ -6,6 +6,7 @@ $c_main_dark: #002f27;
 $c_main_light:  #005f4e;
 
 $c_bright: #b5ff05;
+$c_bright_light: #d8fe7c;
 
 * {
   margin:0; padding:0;
@@ -19,6 +20,7 @@ html {
 
 body {
   font-size:1.4rem;
+  letter-spacing:0.1rem;
   font-family:$font_main;
   padding:0 0.5rem;
   color:#fefefe;
@@ -33,17 +35,76 @@ a
   text-decoration:none;
 }
 
+
+a.btn,
+input.btn
+{
+  background-color:$c_bright;
+  box-shadow: inset 1px 1px 20px $c_bright_light, inset -1px -1px 10px $c_main_mid;
+  display:inline-block;
+  min-width:100px;
+  vertical-align: middle;
+  cursor: pointer;
+  text-align: center;
+  border-radius:0.5rem;
+  text-decoration: none !important;
+  font:500 1.75rem/1 $font_title;
+  border:1px solid $c_main_dark;
+  color:$c_main_dark;
+  min-height:18px;
+  padding:10px 20px;
+  margin:5px 0;
+
+  &:focus,
+  &:hover
+  {
+  }
+
+  &.cancel
+  {
+    background-color:#a73a40;
+    box-shadow: inset 1px 1px 1px #be656b, inset -1px -1px 1px #79262c;
+    border-color:#a45a64;
+
+    &:focus,
+    &:hover
+    {
+      background-color:#d1101b;
+      box-shadow:inset 1px 1px 1px #e0434d, inset -1px -1px 1px #990610;
+      border-color:#c03d4e;
+    }
+  }
+
+  // Disabled button
+  &.disabled,
+  &.disabled:hover
+  {
+    background-color:#898989;
+    box-shadow:inset 1px 1px 1px #a3a3a3, inset -1px -1px 1px #6b6b6b;
+    border-color:#939393;
+    cursor:default;
+    color:#ccc;
+  }
+
+  &.pagenumber
+  {
+    min-width:10px;
+    margin:0 2px;
+    padding:5px 10px;
+  }
+}
+
+
 header
 {
   padding:1rem;
   border-bottom:3px solid $c_main_mid;
 
-
   h1
   {
     font:normal normal normal 2.5rem $font_title;
     display:inline-block;
-    padding-top:0.75rem;
+    padding-top:0.25rem;
   }
 
   nav
@@ -64,9 +125,44 @@ header
   }
 }
 
+.search
+{
+  margin:10px 0;
+  border-bottom:3px solid $c_main_mid;
+
+  label
+  {
+    float:left;
+    width:3rem;
+    padding:0.5rem 1rem;
+    font-size:1.75rem;
+  }
+
+  input
+  {
+    display:block;
+
+    &[type="text"]
+    {
+      border:2px solid $c_main_mid;
+      box-shadow:inset 0 0 3px 0 $c_main_mid;
+      font-size:1.4rem;
+      padding:0.5rem;
+      width:31rem;
+      margin:1rem 0 1rem 5rem;
+    }
+  }
+
+  input.btn
+  {
+    width:36rem;
+    margin:1rem auto;
+  }
+}
+
 .stuff-list
 {
-  margin:2rem 0;
+  margin:1rem 0;
   list-style:inside none;
 
   a
@@ -109,7 +205,6 @@ header
   a:hover
   {
   }
-
 
 }
 
