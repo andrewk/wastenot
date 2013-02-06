@@ -18,7 +18,7 @@ $('document').ready(function() {
 <div id="results">
   <%= form_tag things_path, :method => :get, :class => 'search' do %>
     <%= label_tag :what, "find" %>
-    <%= text_field_tag :what, "", :placeholder => 'Any stuff' %>
+    <%= text_field_tag :what, params[:what], :placeholder => 'Any stuff' %>
     <%= label_tag :location, "near" %>
     <%= text_field_tag :location, @location %>
     <input type="submit" value="Search" class="btn primary">

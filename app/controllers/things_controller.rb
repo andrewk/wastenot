@@ -7,18 +7,21 @@ class ThingsController < ApplicationController
     lat = params[:latitude]
     long = params[:longitude]
     location = params[:location]
+    search   = params[:what]
+
+    rel = Thing.where("title LIKE ?", "%#{search}%")
 
     if lat && long
       results = Geocoder.search([lat,long])
       if geo = results.first
         @location = "#{geo.city}, #{geo.state}"
       end
-      @things = Thing.near([lat,long])
+      @things = rel.near([lat,long])
     elsif location
       @location = location
-      @things = Thing.near(location)
+      @things = rel.near(location)
     else
-      @things = Thing.all
+      @things = rel 
     end
 
     respond_to do |format|
