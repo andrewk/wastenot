@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th></th>
     <th>Title</th>
     <th>Description</th>
     <th>Latitude</th>
@@ -14,6 +15,7 @@
 
 <% @things.each do |thing| %>
   <tr>
+    <td><%= image_tag thing.image_url(:thumb).to_s %></td>
     <td><%= thing.title %></td>
     <td><%= thing.description %></td>
     <td><%= thing.latitude %></td>
