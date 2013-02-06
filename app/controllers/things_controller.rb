@@ -1,6 +1,4 @@
 class ThingsController < ApplicationController
-  layout :get_layout
-
   # GET /things
   # GET /things.json
   def index
@@ -9,19 +7,23 @@ class ThingsController < ApplicationController
     location = params[:location]
     search   = params[:what]
 
-    rel = Thing.where("title LIKE ?", "%#{search}%").order("created_at DESC")
+    if request.xhr?
+      rel = Thing.where("title LIKE ?", "%#{search}%").order("created_at DESC")
 
-    if lat && long
-      results = Geocoder.search([lat,long])
-      if geo = results.first
-        @location = "#{geo.suburb || geo.city }, #{geo.state}"
+      if lat && long
+        results = Geocoder.search([lat,long])
+        if geo = results.first
+          @location = "#{geo.suburb || geo.city }, #{geo.state}"
+        end
+        @things = rel.near([lat,long])
+      elsif location.present?
+        @location = location
+        @things = rel.near(location)
+      else
+        @things = rel 
       end
-      @things = rel.near([lat,long])
-    elsif location.present?
-      @location = location
-      @things = rel.near(location)
-    else
-      @things = rel 
+
+      return render "_things", :layout => false
     end
 
     respond_to do |format|
@@ -99,11 +101,5 @@ class ThingsController < ApplicationController
       format.html { redirect_to things_url }
       format.json { head :no_content }
     end
-  end
-
-  protected
-
-  def get_layout
-    request.xhr? ? nil : 'application'
   end
 end
