@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @thing.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @thing.description %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @thing.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @thing.longitude %>
+</p>
+
+<p>
+  <b>Expires at:</b>
+  <%= @thing.expires_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_thing_path(@thing) %> |
+<%= link_to 'Back', things_path %>
