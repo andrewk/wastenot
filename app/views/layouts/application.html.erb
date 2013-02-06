@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Wastenot</title>
+  <title>waste not : find stuff, report stuff.</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
+  <h1>waste not</h1>
+  <nav>
+    <a href="/things" class="find">need stuff</a>
+    <a href="/things/new" class="report">found stuff</a>
+  </nav>
+</header>
 
 <%= yield %>
 

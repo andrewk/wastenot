@@ -1,31 +1,14 @@
-<h1>Listing things</h1>
-
-<table>
-  <tr>
-    <th></th>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Near</th>
-    <th>Listed</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @things.each do |thing| %>
-  <tr>
-    <td><%= image_tag thing.image_url(:thumb).to_s %></td>
-    <td><%= thing.title %></td>
-    <td><%= thing.description %></td>
-    <td><%= thing.address %></td>
-    <td><%= "#{time_ago_in_words(thing.created_at)} ago" %></td>
-    <td><%= link_to 'Show', thing %></td>
-    <td><%= link_to 'Edit', edit_thing_path(thing) %></td>
-    <td><%= link_to 'Destroy', thing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<ol class="stuff-list">
+  <% @things.each do |thing| %>
+    <li>
+    <a href="<%= thing_path thing %>">
+      <%= image_tag thing.image_url(:thumb).to_s %>
+      <strong><%= thing.title %></strong>
+      <span><%= thing.address %></span>
+      <%= "#{time_ago_in_words(thing.created_at)} ago" %>
+    </a>
+  </li>
 <% end %>
-</table>
-
-<br />
+</ol>
 
 <%= link_to 'New Thing', new_thing_path %>
