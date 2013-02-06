@@ -4,4 +4,16 @@ class Thing < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   validates_presence_of :title
+
+  reverse_geocoded_by :latitude, :longitude do |thing,results|
+    if geo = results.first
+      thing.city = geo.city
+      thing.postal_code = geo.postal_code
+      thing.country     = geo.country
+      thing.address     = geo.address
+      thing.state       = geo.state
+    end
+  end
+
+  after_validation :reverse_geocode
 end

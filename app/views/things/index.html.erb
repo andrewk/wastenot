@@ -5,8 +5,7 @@
     <th></th>
     <th>Title</th>
     <th>Description</th>
-    <th>Latitude</th>
-    <th>Longitude</th>
+    <th>Near</th>
     <th>Listed</th>
     <th></th>
     <th></th>
@@ -18,8 +17,7 @@
     <td><%= image_tag thing.image_url(:thumb).to_s %></td>
     <td><%= thing.title %></td>
     <td><%= thing.description %></td>
-    <td><%= thing.latitude %></td>
-    <td><%= thing.longitude %></td>
+    <td><%= thing.city %></td>
     <td><%= "#{time_ago_in_words(thing.created_at)} ago" %></td>
     <td><%= link_to 'Show', thing %></td>
     <td><%= link_to 'Edit', edit_thing_path(thing) %></td>
