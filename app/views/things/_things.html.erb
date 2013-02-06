@@ -6,7 +6,7 @@
     <a href="<%= thing_path thing %>" title="<%= thing.description %>">
       <%= image_tag thing.image_url(:thumb).to_s %>
       <strong><%= thing.title %></strong>
-      <span><%= thing.address %></span>
+      <span><%= thing.street_address %></span>
       <%= "#{time_ago_in_words(thing.created_at)} ago" %>
     </a>
     </li>

@@ -16,6 +16,10 @@
     <%= f.text_field :title %>
   </fieldset>
   <fieldset>
+    <%= f.label :address, 'Where is it?' %>
+    <%= f.text_field :address, :placeholder => "Fetching your current location ..." %>
+  </fieldset>
+  <fieldset>
     <label for="thing_image">Add a picture?
       <button id="pic_select" class="btn">take photo</button>
       <span id="image_label">(optional)</span></label>
@@ -45,6 +49,14 @@
 function success(position) {
   document.querySelector('#thing_latitude').value = position.coords.latitude
   document.querySelector('#thing_longitude').value = position.coords.longitude
+
+  $.post(
+    '/location', 
+    { latitude: position.coords.latitude, longitude: position.coords.longitude }, 
+    function(data,textStatus,jqXHR) {
+      $("#thing_address").attr('placeholder', data.address);
+    }
+  );
 }
 
 function error(msg) {

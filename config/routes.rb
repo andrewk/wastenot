@@ -2,6 +2,7 @@ Wastenot::Application.routes.draw do
   root :to => "things#index"
   resources :things
 
+  match 'location' => 'locations#find'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
