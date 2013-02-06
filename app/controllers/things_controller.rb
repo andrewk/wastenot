@@ -9,7 +9,7 @@ class ThingsController < ApplicationController
     location = params[:location]
     search   = params[:what]
 
-    rel = Thing.where("title LIKE ?", "%#{search}%")
+    rel = Thing.where("title LIKE ?", "%#{search}%").order("created_at DESC")
 
     if lat && long
       results = Geocoder.search([lat,long])
