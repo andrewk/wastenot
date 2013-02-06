@@ -1,4 +1,5 @@
 <p class="location" style="display: none"><%= @location %></p>
+<p class="search" style="display: none"><%= params[:what] %></p>
 <ol class="stuff-list">
   <% @things.each do |thing| %>
     <li>

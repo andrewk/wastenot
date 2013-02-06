@@ -1,7 +1,8 @@
 <script>
 function success(position) {
-  $("#results").load(resultsUrl(position),function(response,status,xhr) {
+  $("#results").load(latLongUrl(position),function(response,status,xhr) {
     $("#location").val($(response).filter("p.location").text());
+    $("#what").val($(response).filter("p.search").text());
   });
 }
 
@@ -9,23 +10,48 @@ function error(msg) {
 
 }
 
-function resultsUrl(position) {
-  return document.URL + "?latitude=" + position.coords.latitude + "&longitude=" + position.coords.longitude;
+function getPosition() {
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(success,error);
+  }
+}
+
+function latLongUrl(position) {
+  return "things?latitude=" + position.coords.latitude + "&longitude=" + position.coords.longitude;
+}
+
+function searchUrl(what,place) {
+  return "things?what=" + encodeURIComponent(what) + "&location=" + encodeURIComponent(place);
+}
+
+function getResults() {
+  what = $("#what").val();
+  place = $("#location").val();
+
+  if (what || place) {
+    $("#results").load(searchUrl(what,place),function(response,status,xhr) {
+      $("#location").val($(response).filter("p.location").text());
+      $("#what").val($(response).filter("p.search").text());
+    });
+  } else {
+    getPosition();
+  }
 }
 
 $('document').ready(function() {
-  if ($('#results .loading')) {
-    if(navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(success,error);
-    }
-  }
+  getResults();
+
+  $("input.btn").click(function(e) {
+    e.preventDefault();
+    getResults(); 
+  });
 });
 </script>
 <%= form_tag things_path, :method => :get, :class => 'search' do %>
   <%= label_tag :what, "find" %>
   <%= text_field_tag :what, params[:what], :placeholder => 'Any stuff' %>
   <%= label_tag :location, "near" %>
-  <%= text_field_tag :location %>
+  <%= text_field_tag :location, (params[:location] || @location) %>
   <input type="submit" value="Search" class="btn primary">
 <% end %>
 <div id="results">
