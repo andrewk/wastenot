@@ -10,7 +10,7 @@ gem 'sqlite3'
 gem 'carrierwave'
 gem 'rmagick'
 
-gem 'geocoder'
+gem 'geocoder', :git => "https://github.com/alexreisner/geocoder.git", :ref => "f9e1ade492d696a4b3c0637664faf649b63da25e"
 
 # Gems used only for assets and not required
 # in production environments by default.
