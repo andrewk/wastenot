@@ -1,4 +1,5 @@
 Wastenot::Application.routes.draw do
+  root :to => "things#index"
   resources :things
 
 
