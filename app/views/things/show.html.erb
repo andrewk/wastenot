@@ -21,8 +21,8 @@
 </p>
 
 <p>
-  <b>For pick up:</b>
-  <%= pick_up_time(@thing) %>
+  <b>Listed:</b>
+  <%= "#{time_ago_in_words(@thing.created_at)} ago" %>
 </p>
 
 <%= image_tag @thing.image_url.to_s %>

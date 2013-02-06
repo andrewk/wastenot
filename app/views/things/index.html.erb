@@ -7,7 +7,7 @@
     <th>Description</th>
     <th>Latitude</th>
     <th>Longitude</th>
-    <th>Pick up:</th>
+    <th>Listed</th>
     <th></th>
     <th></th>
     <th></th>
@@ -20,7 +20,7 @@
     <td><%= thing.description %></td>
     <td><%= thing.latitude %></td>
     <td><%= thing.longitude %></td>
-    <td><%= pick_up_time(thing) %></td>
+    <td><%= "#{time_ago_in_words(thing.created_at)} ago" %></td>
     <td><%= link_to 'Show', thing %></td>
     <td><%= link_to 'Edit', edit_thing_path(thing) %></td>
     <td><%= link_to 'Destroy', thing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
