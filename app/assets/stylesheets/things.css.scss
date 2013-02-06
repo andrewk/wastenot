@@ -4,6 +4,7 @@ $font_main: 'Open Sans', helvetica, sans-serif;
 $c_main_mid: #004a3d;
 $c_main_dark: #002f27;
 $c_main_light:  #005f4e;
+$c_main_shadow: #00221b;
 
 $c_bright: #b5ff05;
 $c_bright_light: #d8fe7c;
@@ -97,14 +98,22 @@ input.btn
 
 header
 {
-  padding:1rem;
+  padding:0.5rem 1rem 0;
   border-bottom:3px solid $c_main_mid;
+
+  &:after
+  {
+    content:"";
+    display:table;
+    clear:both;
+  }
 
   h1
   {
-    font:normal normal normal 2.5rem $font_title;
+    font:normal normal normal 3.5rem $font_title;
     display:inline-block;
-    padding-top:0.25rem;
+    text-shadow:1px 1px 1px $c_main_shadow;
+    color:$c_main_light;
   }
 
   nav
@@ -116,11 +125,18 @@ header
   {
     display:inline-block;
     font-size:1.75rem;
+    margin-top:0.75rem;
     padding:1rem;
 
     &:hover
     {
       text-decoration:underline;
+    }
+
+    &.active
+    {
+      background:$c_main_mid;
+      border-radius:5px 5px 0 0;
     }
   }
 }

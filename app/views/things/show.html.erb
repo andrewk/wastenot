@@ -1,31 +1,25 @@
-<p id="notice"><%= notice %></p>
+<section id="notice"><%= notice %></section>
 
-<p>
-  <b>Title:</b>
-  <%= @thing.title %>
-</p>
+<article>
+  <h1><%= @thing.title %></h1>
 
-<p>
-  <b>Description:</b>
-  <%= @thing.description %>
-</p>
+  <div class="address">
+    <span class="city"><%= @thing.city %></span>
+    <span class="address"><%= @thing.address %></span>
+  </div>  
 
-<p>
-  <b>Address:</b>
-  <%= @thing.address %> <%= @thing.postal_code %>
-</p>
+  <div class="when">
+    Listed <%= "#{time_ago_in_words(@thing.created_at)} ago" %>
+  </div>
 
-<p>
-  <b>City:</b>
-  <%= @thing.city %>
-</p>
+  <%= image_tag @thing.image_url(:thumb).to_s %>
+  <% unless @thing.description.empty? %>
+    <div class="description">
+      <%= @thing.description %>
+    </div>
+  <% end %>
 
-<p>
-  <b>Listed:</b>
-  <%= "#{time_ago_in_words(@thing.created_at)} ago" %>
-</p>
-
-<%= image_tag @thing.image_url.to_s %>
+</article>
 
 
 <%= link_to 'Edit', edit_thing_path(@thing) %> |
