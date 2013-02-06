@@ -25,6 +25,8 @@
   <%= @thing.expires_at %>
 </p>
 
+<%= image_tag @thing.image_url.to_s %>
+
 
 <%= link_to 'Edit', edit_thing_path(@thing) %> |
 <%= link_to 'Back', things_path %>

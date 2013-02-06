@@ -1,4 +1,4 @@
-<%= form_for(@thing) do |f| %>
+<%= form_for(@thing, :html => { multipart: true }) do |f| %>
   <% if @thing.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@thing.errors.count, "error") %> prohibited this thing from being saved:</h2>
@@ -30,6 +30,10 @@
   <div class="field">
     <%= f.label :expires_at %><br />
     <%= f.datetime_select :expires_at %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br />
+    <%= f.file_field :image %>
   </div>
   <div class="actions">
     <%= f.submit %>
