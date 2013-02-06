@@ -1,15 +1,19 @@
 <script>
-function success(position) {
+$('document').ready(function() {
+  function success(position) {
+    $("#results").load(document.URL + "?latitude=" + position.coords.latitude + "&longitude=" + position.coords.longitude);
+  }
 
-}
+  function error(msg) {
 
-function error(msg) {
+  }
 
-}
-
-if(navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(success,error);
-}
+  if (!$('#location').val()) {
+    if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success,error);
+    }
+  }
+});
 </script>
 <div id="results">
   <%= form_tag things_path, :method => :get, :class => 'search' do %>
@@ -32,6 +36,7 @@ if(navigator.geolocation) {
     </li>
   <% end %>
   </ol>
+
+  <%= link_to 'New Thing', new_thing_path %>
 </div>
 
-<%= link_to 'New Thing', new_thing_path %>
