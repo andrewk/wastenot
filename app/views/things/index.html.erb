@@ -25,6 +25,7 @@ function searchUrl(what,place) {
 }
 
 function getResults() {
+  $("#results").html("<p>Searching ...</p>");
   what = $("#what").val();
   place = $("#location").val();
 
@@ -55,5 +56,4 @@ $('document').ready(function() {
   <input type="submit" value="Search" class="btn primary">
 <% end %>
 <div id="results">
-  <p class="loading">Loading ...</p>
 </div>

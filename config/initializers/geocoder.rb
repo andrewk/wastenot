@@ -1,6 +1,8 @@
 Geocoder.configure(
 
   :lookup => :nominatim,
-  :units  => :km
+  :units  => :km,
+  :cache  => Redis.new(:url => "redis://localhost:6379")
+  
 
 )

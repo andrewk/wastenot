@@ -95,6 +95,7 @@ GEM
     rake (10.0.3)
     rdoc (3.12)
       json (~> 1.4)
+    redis (3.0.2)
     ref (1.0.2)
     rmagick (2.13.2)
     rspec-core (2.12.2)
@@ -143,6 +144,7 @@ DEPENDENCIES
   jquery-rails
   mysql2
   rails (= 3.2.11)
+  redis
   rmagick
   rspec-rails
   sass-rails (~> 3.2.3)
