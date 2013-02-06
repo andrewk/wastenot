@@ -28,8 +28,8 @@
     <%= f.text_field :longitude %>
   </div>
   <div class="field">
-    <%= f.label :expires_at %><br />
-    <%= f.datetime_select :expires_at %>
+    <%= f.label :expires_at, "For pickup:" %><br />
+    <%= f.select :expires_at, [["Whenever",nil],["Today",Date.today],["Tomorrow",Date.tomorrow],["This week",1.week.from_now]] %>
   </div>
   <div class="field">
     <%= f.label :image %><br />

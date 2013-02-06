@@ -21,8 +21,8 @@
 </p>
 
 <p>
-  <b>Expires at:</b>
-  <%= @thing.expires_at %>
+  <b>For pick up:</b>
+  <%= pick_up_time(@thing) %>
 </p>
 
 <%= image_tag @thing.image_url.to_s %>
