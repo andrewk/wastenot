@@ -3,10 +3,10 @@
 <article>
   <h1><%= @thing.title %></h1>
 
-  <div class="address">
+  <a class="address" href="http://maps.google.com?q=<%= "#{@thing.address} #{@thing.city}" %>">
     <span class="city"><%= @thing.city %></span>
     <span class="address"><%= @thing.address %></span>
-  </div>  
+  </a>  
 
   <div class="when">
     Listed <%= "#{time_ago_in_words(@thing.created_at)} ago" %>
