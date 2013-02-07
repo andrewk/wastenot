@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:600,300,400);
+
 $font_title: 'Open Sans', helvetica, sans-serif;
 $font_main: 'Open Sans', helvetica, sans-serif;
 
@@ -24,6 +26,7 @@ body {
   letter-spacing:0.1rem;
   font-family:$font_main;
   padding:0 0.5rem;
+  font-weight:300;
   color:#fefefe;
   background:$c_main_dark;
   max-width:500px;
@@ -49,7 +52,7 @@ input.btn
   text-align: center;
   border-radius:0.5rem;
   text-decoration: none !important;
-  font:500 1.75rem/1 $font_title;
+  font:300 1.75rem/1 $font_title;
   border:1px solid $c_main_dark;
   color:$c_main_dark;
   min-height:18px;
@@ -124,7 +127,7 @@ header
   a
   {
     display:inline-block;
-    font-size:1.75rem;
+    font-size:1.5rem;
     margin-top:0.75rem;
     padding:1rem;
 
@@ -150,8 +153,10 @@ header
   {
     float:left;
     width:3rem;
-    padding:0.5rem 1rem;
+    padding:0.5rem;
+    text-align:right;
     font-size:1.75rem;
+    display:inline-block;
   }
 
   input
