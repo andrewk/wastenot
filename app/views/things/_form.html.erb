@@ -18,15 +18,19 @@
     <%= f.text_field :title %>
   </fieldset>
   <fieldset>
-    <label for="image">Add a picture?
+    <label for="thing_image">Add a picture?
       <button id="pic_select" class="btn">take photo</button>
-      <span>(optional)</span></label>
+      <span id="image_label">(optional)</span></label>
     <%= f.file_field :image %>
     <script>
     document.querySelector('#pic_select').addEventListener('click', function(e) {
       e.preventDefault();
       document.querySelector('#thing_image').click();
     }, false);
+
+    jQuery('#thing_image').change(function(e) {
+      jQuery('#image_label').html('<strong>' + $(this).val().split('/').pop().split('\\').pop() + '</strong>');
+    });
     </script>
   </fieldset>
 

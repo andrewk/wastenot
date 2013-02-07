@@ -217,6 +217,11 @@ fieldset
     {
       float:right;
       color:$c_main_light;
+
+      strong
+      {
+        color:$c_bright;
+      }
     }
   }
 }
