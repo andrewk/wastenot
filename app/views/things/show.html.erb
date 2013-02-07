@@ -1,24 +1,24 @@
 <section id="notice"><%= notice %></section>
 
-<article>
+<article class="thing">
   <h1><%= @thing.title %></h1>
 
+  <%= image_tag @thing.image_url(:small).to_s unless @thing.image_url.blank? %>
+  <h2 class="city"><%= @thing.city %></h2>
   <a class="address" href="http://maps.google.com?q=<%= "#{@thing.address} #{@thing.city}" %>">
-    <span class="city"><%= @thing.city %></span>
-    <span class="address"><%= @thing.address %></span>
+    <span><%= @thing.address %></span>
   </a>  
 
   <div class="when">
     Listed <%= "#{time_ago_in_words(@thing.created_at)} ago" %>
   </div>
 
-  <%= image_tag @thing.image_url(:small).to_s %>
   <% unless @thing.description.empty? %>
+    <h3>Details</h3>
     <div class="description">
       <%= @thing.description %>
     </div>
   <% end %>
-
 </article>
 
 
