@@ -12,26 +12,19 @@
   <% end %>
 
   <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-  <p class="loading">Finding your location: <span id="status">checking...</span></p>
+  <!--<p class="loading">Finding your location: <span id="status">checking...</span></p>-->
 
-  <div class="field">
-    <%= f.label :image, "Add a picture" %><br />
-    <%= f.file_field :image %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
+  <%= f.label :title, 'What have you found?' %>
+  <%= f.text_field :title %>
+  <label for="image">Add a picture?<span>(optional)</span></label>
+  <%= f.file_field :image %>
+  <label for="description">More details? <span>(optional)</span></label>
+  <%= f.text_area :description %>
   <%= f.hidden_field :latitude %>
   <%= f.hidden_field :longitude %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit :class => 'btn' %>
 <% end %>
+<!--
 <script>
 function success(position) {
   var s = document.querySelector('#status');
@@ -83,3 +76,4 @@ if(navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(success, error);
 }
 </script>
+-->
