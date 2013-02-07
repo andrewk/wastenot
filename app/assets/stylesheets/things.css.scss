@@ -1,8 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:600,300,400);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+@import url(http://fonts.googleapis.com/css?family=Text+Me+One);
 
-$font_title: 'Open Sans Condensed', helvetica, sans-serif;
-$font_main: 'Open Sans', helvetica, sans-serif;
+$font_title: 'Text Me One', sans-serif;
+$font_main: 'Open Sans', sans-serif;
 
 $c_main_mid: #004a3d;
 $c_main_dark: #002f27;
@@ -103,7 +103,7 @@ input.btn
 h1
 {
   font-family:$font_title;
-  font-weight:300;
+  font-weight:400;
   font-size:1.75rem;
   margin:1rem 0;
   color:$c_main_highlight;
@@ -111,7 +111,7 @@ h1
 
 header
 {
-  padding:0.5rem 1rem 0 0;
+  padding:0.5rem 0.5rem 0 0;
   border-bottom:3px solid $c_main_mid;
 
   &:after
@@ -125,10 +125,9 @@ header
   {
     font:normal normal normal 3rem $font_title;
     display:inline-block;
-    font-weight:300;
     color:$c_main_highlight;
-    color:#00c38b;
-    margin:0.25rem 0 0 0.25rem;
+    text-shadow:1px 1px 1px $c_main_shadow;
+    margin:0.5rem 0 0 0.5rem;
   }
 
   nav
@@ -152,6 +151,7 @@ header
     {
       background:$c_main_mid;
       border-radius:5px 5px 0 0;
+      box-shadow:inset 0 1px 2px 0 $c_main_highlight, 0 -1px 1px 0 $c_main_shadow;
     }
   }
 }
