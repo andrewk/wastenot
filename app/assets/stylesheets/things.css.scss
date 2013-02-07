@@ -197,7 +197,7 @@ textarea
   label
   {
     font-size:1.2em;
-    margin:2rem 0 1rem;
+    margin:1rem 0 1rem;
     display:block;
     color:$c_main_highlight;
 
@@ -207,6 +207,29 @@ textarea
       color:$c_main_light;
     }
   }
+}
+
+#thing_image
+{
+  visibility:hidden;
+  width:0;
+  height:0;
+}
+
+#pic_select
+{
+  box-shadow: inset 1px 1px 10px $c_bright_light, inset -1px -1px 5px $c_main_mid, 1px 1px 3px 0 $c_main_shadow;
+  border:1px solid $c_main_dark;
+  border-radius:5px;
+  background:image_url('camera-icon.png') no-repeat 50% 50%;
+  display:inline-block;
+  width:41px;
+  height:34px;
+  border:none;
+  text-indent:-9999em;
+  overflow:hidden;
+  margin-left:10px;
+  cursor:pointer;
 }
 
 .search

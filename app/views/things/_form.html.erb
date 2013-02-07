@@ -16,17 +16,26 @@
 
   <%= f.label :title, 'What have you found?' %>
   <%= f.text_field :title %>
-  <label for="image">Add a picture?<span>(optional)</span></label>
+  <label for="image">Add a picture?
+    <button id="pic_select" class="btn">take photo</button>
+    <span>(optional)</span></label>
   <%= f.file_field :image %>
+  <script>
+  document.querySelector('#pic_select').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector('#thing_image').click();
+  }, false);
+  </script>
+
   <label for="description">More details? <span>(optional)</span></label>
   <%= f.text_area :description %>
   <%= f.hidden_field :latitude %>
   <%= f.hidden_field :longitude %>
   <%= f.submit 'Post this', :class => 'btn' %>
 <% end %>
+
 <script>
 function success(position) {
-
   document.querySelector('#thing_latitude').value = position.coords.latitude
   document.querySelector('#thing_longitude').value = position.coords.longitude
 }
