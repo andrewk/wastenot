@@ -1,6 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:600,300,400);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
 
-$font_title: 'Open Sans', helvetica, sans-serif;
+$font_title: 'Open Sans Condensed', helvetica, sans-serif;
 $font_main: 'Open Sans', helvetica, sans-serif;
 
 $c_main_mid: #004a3d;
@@ -53,7 +54,7 @@ input.btn
   text-align: center;
   border-radius:0.5rem;
   text-decoration: none !important;
-  font:300 1.75rem/1 $font_title;
+  font:300 1.75rem/1 $font_main;
   border:1px solid $c_main_dark;
   color:$c_main_dark;
   min-height:18px;
@@ -124,10 +125,10 @@ header
   {
     font:normal normal normal 3rem $font_title;
     display:inline-block;
-    text-shadow:1px 1px 1px $c_main_shadow;
     font-weight:300;
-    color:#fff;
-    margin:0;
+    color:$c_main_highlight;
+    color:#00c38b;
+    margin:0.25rem 0 0 0.25rem;
   }
 
   nav
