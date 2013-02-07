@@ -122,7 +122,7 @@ header
 
   h1
   {
-    font:normal normal normal 3.5rem $font_title;
+    font:normal normal normal 3rem $font_title;
     display:inline-block;
     text-shadow:1px 1px 1px $c_main_shadow;
     font-weight:300;
@@ -227,7 +227,7 @@ textarea
   input[type="text"]
   {
     margin:1rem 0 1rem 5rem;
-    width:36.5rem;
+    width:86%;
   }
 
 }
