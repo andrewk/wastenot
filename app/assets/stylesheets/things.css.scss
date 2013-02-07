@@ -192,6 +192,17 @@ textarea
   margin:0 0 1rem;
 }
 
+fieldset
+{
+  border-bottom:3px solid $c_main_shadow;
+  border-width:0 0 3px 0;
+  padding-bottom:0.5rem;
+  margin-bottom:0.5rem;
+
+}
+
+
+
 .new_thing
 {
   label
@@ -200,6 +211,7 @@ textarea
     margin:1rem 0 1rem;
     display:block;
     color:$c_main_highlight;
+    vertical-align:middle;
 
     span
     {

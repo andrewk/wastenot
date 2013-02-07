@@ -13,22 +13,27 @@
 
   <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
   <!--<p class="loading">Finding your location: <span id="status">checking...</span></p>-->
+  <fieldset>
+    <%= f.label :title, 'What have you found?' %>
+    <%= f.text_field :title %>
+  </fieldset>
+  <fieldset>
+    <label for="image">Add a picture?
+      <button id="pic_select" class="btn">take photo</button>
+      <span>(optional)</span></label>
+    <%= f.file_field :image %>
+    <script>
+    document.querySelector('#pic_select').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector('#thing_image').click();
+    }, false);
+    </script>
+  </fieldset>
 
-  <%= f.label :title, 'What have you found?' %>
-  <%= f.text_field :title %>
-  <label for="image">Add a picture?
-    <button id="pic_select" class="btn">take photo</button>
-    <span>(optional)</span></label>
-  <%= f.file_field :image %>
-  <script>
-  document.querySelector('#pic_select').addEventListener('click', function(e) {
-    e.preventDefault();
-    document.querySelector('#thing_image').click();
-  }, false);
-  </script>
-
-  <label for="description">More details? <span>(optional)</span></label>
-  <%= f.text_area :description %>
+  <fieldset>
+    <label for="description">More details? <span>(optional)</span></label>
+    <%= f.text_area :description %>
+  </fieldset>
   <%= f.hidden_field :latitude %>
   <%= f.hidden_field :longitude %>
   <%= f.submit 'Post this', :class => 'btn' %>
