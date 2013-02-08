@@ -17,7 +17,7 @@ class Thing < ActiveRecord::Base
     end
   end
 
-  validates_presence_of :title
+  validates_presence_of :title, :address
 
   after_validation :geocode
 end
