@@ -5,7 +5,8 @@ $font_title: 'Text Me One', sans-serif;
 $font_main: 'Open Sans', sans-serif;
 
 $c_main_mid: #004a3d;
-$c_main_dark: #002f27;
+//$c_main_dark: #002f27;
+$c_main_dark: #00211b;
 $c_main_light:  #005f4e;
 $c_main_highlight: #00967b;
 $c_main_shadow: #00221b;
@@ -64,6 +65,7 @@ input.btn
   &:focus,
   &:hover
   {
+    background:$c_bright_light;
   }
 
   &.cancel
@@ -71,6 +73,7 @@ input.btn
     background-color:#a73a40;
     box-shadow: inset 1px 1px 1px #be656b, inset -1px -1px 1px #79262c;
     border-color:#a45a64;
+    color:#fff;
 
     &:focus,
     &:hover
@@ -313,6 +316,30 @@ fieldset
     margin:0 2rem 2rem 0;
     border-radius:3px;
     border:3px solid $c_main_mid;
+  }
+
+  .claim
+  {
+    margin:1rem 0;
+
+    &:after
+    {
+      content:"";
+      display:table;
+      clear:both;
+    }
+  }
+
+  .btn
+  {
+    width:53%;
+    float:right;
+
+    &.cancel
+    {
+      float:left;
+      width:43%;
+    }
   }
 }
 
