@@ -38,10 +38,18 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:
   version :thumb do
     process :resize_to_fill => [75, 75]
+    process :auto_orient
   end
 
   version :small do
     process :resize_to_fill => [180, 180]
+    process :auto_orient
+  end
+
+  def auto_orient
+    manipulate! do |img|
+      img = img.auto_orient
+    end
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
