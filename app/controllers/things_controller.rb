@@ -13,7 +13,7 @@ class ThingsController < ApplicationController
       if lat && long
         results = Geocoder.search([lat,long])
         if geo = results.first
-          @location = "#{geo.suburb || geo.city }, #{geo.state}"
+          @location = "#{geo.city}, #{geo.state}"
         end
         @things = rel.near([lat,long])
       elsif location.present?

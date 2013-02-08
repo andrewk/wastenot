@@ -3,23 +3,19 @@ class Thing < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
-  validates_presence_of :title
-
-  reverse_geocoded_by :latitude, :longitude do |thing,results|
+  geocoded_by :address do |obj, results|
     if geo = results.first
-      thing.city            = geo.suburb || geo.city
-      thing.postal_code     = geo.postal_code
-      thing.country         = geo.country
-      thing.street_address  = "#{geo.house_number} #{geo.street}"
-      thing.state           = geo.state
+      obj.latitude = geo.latitude
+      obj.longitude = geo.longitude
+      obj.street_address = geo.street_address
+      obj.country = geo.country
+      obj.state  = geo.state
+      obj.postal_code = geo.postal_code
+      obj.city = geo.city
     end
   end
-  geocoded_by :address
 
-  after_validation :reverse_geocode
+  validates_presence_of :title
+
   after_validation :geocode
-
-  def address
-    super || "#{street_address}, #{city}, #{country}"
-  end
 end

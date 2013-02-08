@@ -9,15 +9,14 @@
     </div>
   <% end %>
 
-  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-  <!--<p class="loading">Finding your location: <span id="status">checking...</span></p>-->
   <fieldset>
     <%= f.label :title, 'What have you found?' %>
     <%= f.text_field :title %>
   </fieldset>
-  <fieldset>
-    <%= f.label :address, 'Where is it?' %>
-    <%= f.text_field :address, :placeholder => "Fetching your current location ..." %>
+  <fieldset id="location_field">
+    <%= f.label :address, "Where is it?" %>
+    <p id="location_loading">Fetching your current location &hellip;</p>
+    <%= f.text_field :address %>
   </fieldset>
   <fieldset>
     <label for="thing_image">Add a picture?
@@ -40,21 +39,19 @@
     <label for="description">More details? <span>(optional)</span></label>
     <%= f.text_area :description %>
   </fieldset>
-  <%= f.hidden_field :latitude %>
-  <%= f.hidden_field :longitude %>
   <%= f.submit 'Post this', :class => 'btn' %>
 <% end %>
 
 <script>
 function success(position) {
-  document.querySelector('#thing_latitude').value = position.coords.latitude
-  document.querySelector('#thing_longitude').value = position.coords.longitude
-
   $.post(
-    '/location', 
-    { latitude: position.coords.latitude, longitude: position.coords.longitude }, 
+    '/location',
+    { latitude: position.coords.latitude, longitude: position.coords.longitude },
     function(data,textStatus,jqXHR) {
-      $("#thing_address").attr('placeholder', data.address);
+      $("#location_loading").hide();
+      if (!$("#location_field input").val()) {
+        $("#location_field input").val(data.address);
+      }
     }
   );
 }
@@ -62,7 +59,17 @@ function success(position) {
 function error(msg) {
 }
 
-if(navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(success, error);
-}
+$("document").ready(function() {
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(success, error);
+  }
+
+ var input = $("#location_field input")[0]; 
+
+ var options = {
+   types: ['geocode']
+ };
+
+ autocomplete = new google.maps.places.Autocomplete(input,options);
+});
 </script>
