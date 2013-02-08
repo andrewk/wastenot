@@ -11,7 +11,7 @@ end
 
 module Wastenot
   class Application < Rails::Application
-    config.redis    = "redis://localhost:6369"
+    config.redis    = "redis://localhost:6379"
     config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.
