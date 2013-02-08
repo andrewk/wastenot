@@ -1,5 +1,5 @@
 Wastenot::Application.routes.draw do
-  root :to => "home#show"
+  root :to => "things#index"
   
   resources :things do
     post :gone

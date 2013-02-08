@@ -1,14 +1,18 @@
 <p class="location" style="display: none"><%= @location %></p>
 <p class="search" style="display: none"><%= params[:what] %></p>
-<ol class="stuff-list">
-  <% @things.each do |thing| %>
-    <li>
-    <a href="<%= thing_path thing %>" title="<%= thing.description %>">
-      <%= image_tag thing.image_url(:thumb).to_s %>
-      <strong><%= thing.title %></strong>
-      <span><%= "#{thing.street_address}, #{thing.city}" %></span>
-      <%= "#{time_ago_in_words(thing.created_at)} ago" %>
-    </a>
-    </li>
-  <% end %>
-</ol>
+<% if @things.present? %>
+  <ol class="stuff-list">
+    <% @things.each do |thing| %>
+      <li>
+      <a href="<%= thing_path thing %>" title="<%= thing.description %>">
+        <%= image_tag thing.image_url(:thumb).to_s %>
+        <strong><%= thing.title %></strong>
+        <span><%= "#{thing.street_address}, #{thing.city}" %></span>
+        <%= "#{time_ago_in_words(thing.created_at)} ago" %>
+      </a>
+      </li>
+    <% end %>
+  </ol>
+<% else %>
+  <p>Nothing found nearby! Check back later.</p>
+<% end %>
