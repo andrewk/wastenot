@@ -1,7 +1,9 @@
 <article class="thing">
   <h1><%= @thing.title %></h1>
 
-  <%= image_tag @thing.image_url(:small).to_s unless @thing.image_url.blank? %>
+  <%= link_to @thing.image_url do %>
+    <%= image_tag @thing.image_url(:small).to_s unless @thing.image_url.blank? %>
+  <% end %>
   <h2 class="city"><%= @thing.city %></h2>
   <a class="address" href="http://maps.google.com?q=<%= "#{@thing.address}" %>">
     <span><%= @thing.street_address %></span>
