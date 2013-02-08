@@ -8,7 +8,7 @@ class ThingsController < ApplicationController
     search   = params[:what]
 
     if request.xhr?
-      rel = Thing.where("title LIKE ?", "%#{search}%").order("created_at DESC")
+      rel = Thing.where("title LIKE ? AND created_at >= ?", "%#{search}%", 7.days.ago).order("created_at DESC").limit(50)
 
       if lat && long
         results = Geocoder.search([lat,long])
