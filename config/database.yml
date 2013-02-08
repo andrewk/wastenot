@@ -13,3 +13,11 @@ test:
   pool: 5
   username: wastenot
   password: wastenot
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: wastenot 
+  pool: 5
+  username: wastenot
+  password: wastenot
