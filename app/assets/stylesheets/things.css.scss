@@ -1,7 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:600,300,400);
 @import url(http://fonts.googleapis.com/css?family=Text+Me+One);
+@import url(http://fonts.googleapis.com/css?family=Englebert);
 
-$font_title: 'Text Me One', sans-serif;
+$font_title: 'Englebert', sans-serif;
 $font_main: 'Open Sans', sans-serif;
 
 $c_main_mid: #004a3d;
@@ -26,8 +27,8 @@ html {
 
 body {
   font-size:1.4rem;
-  letter-spacing:0.1rem;
   font-family:$font_main;
+  -webkit-font-smoothing: antialiased;
   padding:0 0.5rem;
   font-weight:300;
   color:#fefefe;
@@ -128,9 +129,9 @@ header
   {
     font:normal normal normal 3rem $font_title;
     display:inline-block;
-    color:$c_main_highlight;
-    text-shadow:1px 1px 1px $c_main_shadow;
-    margin:0.5rem 0 0 0.5rem;
+    color:$c_bright;
+    text-shadow:1px 1px 1px $c_main_shadow, -1px -1px 1px #000;
+    margin:2rem 0 0 0.5rem;
   }
 
   nav
@@ -367,6 +368,10 @@ fieldset
     }
   }
 
+  strong
+  {
+    font-weight:400;
+  }
 
   img
   {
