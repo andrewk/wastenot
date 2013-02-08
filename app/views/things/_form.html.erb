@@ -15,7 +15,6 @@
   </fieldset>
   <fieldset id="location_field">
     <%= f.label :address, "Where is it?" %>
-    <p id="location_loading">Fetching your current location &hellip;</p>
     <%= f.text_field :address %>
   </fieldset>
   <fieldset>
@@ -48,7 +47,6 @@ function success(position) {
     '/location',
     { latitude: position.coords.latitude, longitude: position.coords.longitude },
     function(data,textStatus,jqXHR) {
-      $("#location_loading").hide();
       if (!$("#location_field input").val()) {
         $("#location_field input").val(data.address);
       }
