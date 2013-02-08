@@ -1,5 +1,3 @@
-<section id="notice"><%= notice %></section>
-
 <article class="thing">
   <h1><%= @thing.title %></h1>
 
@@ -21,9 +19,4 @@
   <% end %>
 
   <%= button_to "Gone :(", thing_gone_path(@thing), :class => "btn cancel", :confirm => "Is this thing really gone?" %>
-
-  <div class="actions">
-    <%= link_to 'Edit', edit_thing_path(@thing) %> |
-    <%= link_to 'Back', things_path %>
-  </div>
 </article>

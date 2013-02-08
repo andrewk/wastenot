@@ -67,11 +67,6 @@ class ThingsController < ApplicationController
     end
   end
 
-  # GET /things/1/edit
-  def edit
-    @thing = Thing.find(params[:id])
-  end
-
   # POST /things
   # POST /things.json
   def create
@@ -79,7 +74,7 @@ class ThingsController < ApplicationController
 
     respond_to do |format|
       if @thing.save
-        format.html { redirect_to @thing, notice: 'Thing was successfully created.' }
+        format.html { redirect_to things_url, notice: 'Your stuff is now listed!' }
         format.json { render json: @thing, status: :created, location: @thing }
       else
         format.html { render action: "new" }
