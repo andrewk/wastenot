@@ -1,5 +1,5 @@
 Wastenot::Application.routes.draw do
-  root :to => "things#index"
+  root :to => "home#show"
   resources :things
 
   match 'location' => 'locations#find'
