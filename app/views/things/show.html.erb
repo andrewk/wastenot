@@ -20,7 +20,7 @@
     </div>
   <% end %>
 
-  <%= button_to "Gone :(", thing_gone_path(@thing), :class => "btn cancel" %>
+  <%= button_to "Gone :(", thing_gone_path(@thing), :class => "btn cancel", :confirm => "Is this thing really gone?" %>
 </article>
 
 
