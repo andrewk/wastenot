@@ -20,10 +20,7 @@
     </div>
   <% end %>
 
-  <form class="claim">
-    <input type="submit" name="claim" value="MINE!" class="btn">
-    <input type="submit" name="gone" value="Gone :(" class="btn cancel">
-  </form>
+  <%= button_to "Gone :(", thing_gone_path(@thing), :class => "btn cancel" %>
 </article>
 
 

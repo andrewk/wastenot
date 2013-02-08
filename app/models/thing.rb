@@ -1,5 +1,7 @@
 class Thing < ActiveRecord::Base
-  attr_accessible :description, :expires_at, :latitude, :longitude, :title, :image, :address
+  attr_accessible :description, :expires_at, :latitude, :longitude, :title, :image, :address, :reported_gone_at
+
+  default_scope where("reported_gone_at IS NULL")
 
   mount_uploader :image, ImageUploader
 

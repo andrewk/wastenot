@@ -54,6 +54,19 @@ class ThingsController < ApplicationController
     end
   end
 
+  # POST /things/1/gone
+  def gone
+    @thing = Thing.find(params[:thing_id])
+
+    @thing.reported_gone_at = Time.now
+
+    if @thing.save
+      redirect_to things_url
+    else
+      render action: "show"
+    end
+  end
+
   # GET /things/1/edit
   def edit
     @thing = Thing.find(params[:id])
